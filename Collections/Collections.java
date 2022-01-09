@@ -3,9 +3,29 @@ import java.util.Vector;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Stack;
+import java.util.TreeMap;
+import java.util.Comparator;
 import java.util.Iterator;
 
+// Comparator
+class LastNameAscending implements Comparator<String> {
+    public int compare(String aStr, String bStr) {
+        int i, j, k;
+        i = aStr.lastIndexOf(' ');
+        j = bStr.lastIndexOf(' ');
+        k = aStr.substring(i).compareToIgnoreCase(
+                bStr.substring(j));
+        if (k == 0) {
+            return aStr.compareToIgnoreCase(bStr);
+        }
+        else {
+            return k;
+        }
+    }
+}
+
 class Collections {
+
     public static void main(String args[]) {
 
         // ArrayList
@@ -45,5 +65,15 @@ class Collections {
             // st.peek() => Return stack top without deleting
             System.out.println(st.pop());
         }
+
+        // TreeMap - sorted by last name using comparator
+        TreeMap<String, Integer> tm = new TreeMap<String, Integer>(new LastNameAscending());
+        tm.put("John Doe", 1);    // tm.get("John Doe");
+        tm.put("Tom Smith", 2);
+        tm.put("Jane Baker", 3);
+        for(Map.Entry element: tm.entrySet()) {
+            System.out.println("Key: " + element.getKey() + ", Value: " + element.getValue());
+        }        
+
     }
 }
