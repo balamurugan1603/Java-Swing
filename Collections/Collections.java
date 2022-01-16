@@ -34,7 +34,7 @@ class Collections {
         ArrayList<String> arr_list = new ArrayList<String>();
         arr_list.add("name1");
         arr_list.add("name2");
-        Iterator arr_list_iter = arr_list.iterator();
+        Iterator<String> arr_list_iter = arr_list.iterator();
         while(arr_list_iter.hasNext()) {
             System.out.println(arr_list_iter.next());
         }
@@ -43,7 +43,7 @@ class Collections {
         Vector<String> v = new Vector<String>();
         v.add("name1");
         v.add("name2");
-        Iterator v_iter = v.iterator();
+        Iterator<String> v_iter = v.iterator();
         while(v_iter.hasNext()) {
             System.out.println(v_iter.next());
         }
@@ -54,7 +54,7 @@ class Collections {
         ht.put(2, "name2");    // ht.get(2);
         ht.put(3, "name3");    // ht.get(3);
         System.out.println(ht.entrySet());
-        for(Map.Entry element: ht.entrySet()) {
+        for(Map.Entry<Integer, String> element: ht.entrySet()) {
             System.out.println("Key: " + element.getKey() + ", Value: " + element.getValue());
         }
 
@@ -73,7 +73,7 @@ class Collections {
         tm.put("John Doe", 1);    // tm.get("John Doe");
         tm.put("Tom Smith", 2);
         tm.put("Jane Baker", 3);
-        for(Map.Entry element: tm.entrySet()) {
+        for(Map.Entry<String, Integer> element: tm.entrySet()) {
             System.out.println("Key: " + element.getKey() + ", Value: " + element.getValue());
         }        
 
